@@ -6,13 +6,13 @@ const dotenv = require('dotenv');
 const userRoutes = require('./routes/userRoutes');
 const noteRoutes = require('./routes/noteRoutes');
 
-dotenv.config({ path: '/.env' });
+dotenv.config({ path: './.env' });
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-/* const URI = process.env.MONGODB_URL;
+const URI = process.env.MONGODB_URL;
 mongoose.connect(
   URI,
   {
@@ -23,7 +23,7 @@ mongoose.connect(
     if (err) throw err;
     console.log('Connected to MongoDB');
   }
-); */
+);
 
 app.use('/users', userRoutes);
 app.use('/api/notes', noteRoutes);

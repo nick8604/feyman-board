@@ -31,7 +31,6 @@ const userCtrl = {
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) return res.status(400).json({ msg: 'Incorrect password.' });
 
-      // if login success create token
       const payload = { id: user._id, name: user.username };
       const token = jwt.sign(payload, process.env.TOKEN_SECRET, {
         expiresIn: '1d',
